@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from area import Geojp
 from .models import Path
-
 import requests
 
 # Done this one
