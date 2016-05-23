@@ -1,0 +1,171 @@
+.navbar {
+    margin-bottom: 0;
+    background-color: #f4511e;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    position: relative;
+}
+.navbar li:nth-child(n+2) {
+    border-left: solid 1px #000000;
+}
+.navbar li a, .navbar .navbar-brand {
+    color: #fff !important;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #f4511e !important;
+    background-color: #fff !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+}
+
+.navbar-brand img {
+    position: relative;
+    display: inline;
+    height: 43px;
+    top: -10px;
+}
+
+.main {
+    margin-top: 10px;
+}
+.span-header-for-middle {
+    vertical-align: top;
+    font-style: italic;
+    font-family: sans-serif;
+}
+.my-nav-text-style {
+    font-weight: bolder;
+}
+.btn-my-search-style {
+    padding: 10px 50px;
+    font-weight: bolder;
+    font-size: 1.6em;
+}
+.footer-my-style {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #999999;
+}
+.footer-my-style p {
+    margin-bottom: 0;
+}
+#result {
+    margin-top: 15px;
+    background-color: #E0BFDC;
+    padding: 15px;
+    margin-bottom: 40px;
+}
+#result .rs-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.4em;
+}
+.rs-ul li {
+    display: inline-block;
+    list-style-type: none;
+    padding-right: 20px;
+}
+.ticket-list-table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+.tr-tik-header {
+    background-color: white;
+}
+.ticket-list-table th,td {
+    text-align: center;
+}
+.ticket-list-table th,td {
+    padding: 5px;
+    /*padding-right: 20px;*/
+}
+.tr-tik {
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
+.run-text-header {
+    background-color: #C1F55D;
+    font-family: Calibri, sans-serif;
+    font-size: larger;
+    font-weight: bold;
+    position: relative;
+}
+.div-mid-upload {
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    background-color: #48f41b;
+    padding: 20px;
+}
+.table-arcana-list {
+    width: 100%;
+}
+.td-tmp {
+    padding: 5px;
+    border: 1px solid black;
+}
+table tr:nth-child(2n+1){
+    background-color: #d0c8de;
+}
+.search-table{
+    width: 100%;
+}
+.search-table th{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.td-arc-dep, .td-arc-des, .td-arc-df, .td-arc-lcc, .td-arc-tp, .td-arc-id {
+    text-align: center;
+    background-color: #00FFFF;
+}
+.btn-search {
+    padding: 5px 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    background-color: #56FF00;
+    font-weight: bold;
+    color: black;
+    border: none;
+}
+.tr-tik-header {
+    background-color: #00FF95;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+.paginetor-ul li {
+    list-style-type: none;
+    display: inline-block;
+}
+.pagination {
+    margin: 20px 0 0 0;
+    width: 100%;
+    text-align: right;
+}
+#form-search {
+    background-color: black;
+    color: white;
+    padding: 15px;
+}
+#form-search input {
+    padding: 4px;
+    color: black;
+}
+.btn-func {
+    font-weight: bold;
+    margin-right: 7px;
+    margin-left: 7px;
+}

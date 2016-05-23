@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Get hight</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../static/show/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="fa fa-bars fa-2x"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'show:index' %}">
+                    <img src="../../static/show/images/can.png" alt="logo hình lá cần">
+                    <span class="span-header-for-middle">Get Hi Travel</span>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right text-uppercase my-nav-text-style">
+                    <li><a id="a-domistic-page" href="{% url 'show:update' %}">New</a></li>
+                    <li><a id="a-upload-page" href="{% url 'show:upload' %}">Upload</a></li>
+                    <li><a id="a-internal-page" href="javascript:void(0)">International</a></li>
+                    <li><a id="a-about-page" href="javascript:void(0)">About</a></li>
+                    <li><a id="a-contact-page" href="javascript:void(0)">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <marquee class="run-text-header"> NAVI TAKE MY ENERGY ! THIS IS SPARTA | {{ text_header }} </marquee>
+</header>
+<div class="container main">
+    <!-- form se duoc gui thong qua ajax -->
+    <!--
+        <form id="myForm">
+            <div class="row">
+                <div class="form-group col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <label class="control-label" for="from">From:</label>
+                    <select name="departure_port_code" id="from" class="form-control">
+                        <option class="pickFlightStart" value="" style="text-align: center">-- Please choose place --</option>
+                        <option class="pickFlightStart" value="BMV"> Buôn Ma Thuột (BMV)</option>
+                        <option class="pickFlightStart" value="DAD"> Đà Nẵng (DAD)</option>
+                        <option class="pickFlightStart" value="DLI"> Đà Lạt (DLI)</option>
+                        <option class="pickFlightStart" value="DIN"> Điện Biên Phủ (DIN)</option>
+                        <option class="pickFlightStart" value="HPH"> Hải Phòng (HPH)</option>
+                        <option class="pickFlightStart" value="HAN"> Hà Nội (HAN)</option>
+                        <option class="pickFlightStart" value="SGN"> Hồ Chí Minh (SGN)</option>
+                        <option class="pickFlightStart" value="HUI"> Huế (HUI)</option>
+                        <option class="pickFlightStart" value="CXR"> Nha Trang (CXR)</option>
+                        <option class="pickFlightStart" value="PQC"> Phú Quốc (PQC)</option>
+                        <option class="pickFlightStart" value="PXU"> Pleiku (PXU)</option>
+                        <option class="pickFlightStart" value="UIH"> Qui Nhơn (UIH)</option>
+                        <option class="pickFlightStart" value="VKG"> Rạch Giá (VKG)</option>
+                        <option class="pickFlightStart" value="VII"> Vinh (VII)</option>
+                        <option class="pickFlightStart" value="TBB"> Tuy Hòa (TBB)</option>
+                        <option class="pickFlightStart" value="VCL"> Chu Lai (VCL)</option>
+                        <option class="pickFlightStart" value="VDH"> Đồng Hới (VDH)</option>
+                        <option class="pickFlightStart" value="VCS"> Côn Đảo (VCS)</option>
+                        <option class="pickFlightStart" value="THD"> Thanh Hóa (THD)</option>
+                        <option class="pickFlightStart" value="VCA"> Cần Thơ (VCA)</option>
+                        <option class="pickFlightStart" value="CAH"> Cà Mau (CAH)</option>
+                    </select>
+                </div>
+                <div class="form-group col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <label class="control-label" for="to">To:</label>
+                    <select name="departure_port_code" id="to" class="form-control">
+                        <option class="pickFlightStart" value="" style="text-align: center">-- Please choose place --</option>
+                        <option class="pickFlightStart" value="BMV"> Buôn Ma Thuột (BMV)</option>
+                        <option class="pickFlightStart" value="DAD"> Đà Nẵng (DAD)</option>
+                        <option class="pickFlightStart" value="DLI"> Đà Lạt (DLI)</option>
+                        <option class="pickFlightStart" value="DIN"> Điện Biên Phủ (DIN)</option>
+                        <option class="pickFlightStart" value="HPH"> Hải Phòng (HPH)</option>
+                        <option class="pickFlightStart" value="HAN"> Hà Nội (HAN)</option>
+                        <option class="pickFlightStart" value="SGN"> Hồ Chí Minh (SGN)</option>
+                        <option class="pickFlightStart" value="HUI"> Huế (HUI)</option>
+                        <option class="pickFlightStart" value="CXR"> Nha Trang (CXR)</option>
+                        <option class="pickFlightStart" value="PQC"> Phú Quốc (PQC)</option>
+                        <option class="pickFlightStart" value="PXU"> Pleiku (PXU)</option>
+                        <option class="pickFlightStart" value="UIH"> Qui Nhơn (UIH)</option>
+                        <option class="pickFlightStart" value="VKG"> Rạch Giá (VKG)</option>
+                        <option class="pickFlightStart" value="VII"> Vinh (VII)</option>
+                        <option class="pickFlightStart" value="TBB"> Tuy Hòa (TBB)</option>
+                        <option class="pickFlightStart" value="VCL"> Chu Lai (VCL)</option>
+                        <option class="pickFlightStart" value="VDH"> Đồng Hới (VDH)</option>
+                        <option class="pickFlightStart" value="VCS"> Côn Đảo (VCS)</option>
+                        <option class="pickFlightStart" value="THD"> Thanh Hóa (THD)</option>
+                        <option class="pickFlightStart" value="VCA"> Cần Thơ (VCA)</option>
+                        <option class="pickFlightStart" value="CAH"> Cà Mau (CAH)</option>
+                    </select>
+                </div>
+                <div class="form-group col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <label class="control-label" for="price">Way:</label>
+                    <select class="form-control" id="price" name="price">
+                        <option value="ascending">One Way (Một chiều)</option>
+                        <option value="descending">Turn Back (Hai chiều)</option>
+                    </select>
+                </div>
+                <div class="form-group col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <label class="control-label" for="stops">Stops:</label>
+                    <select class="form-control" id="stops" name="stops">
+                        <option value="null">Any</option>
+                        <option value="0">Nonstop</option>
+                        <option value="1">Up to 1 stop</option>
+                        <option value="2">Up to 2 stops</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <label class="control-label" for="outbound">Outbound time:</label>
+                    <input type="date" class="form-control" id="outbound" name="outbound" placeholder="Date...">
+                </div>
+                <div class="form-group col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <label class="control-label" for="return">Return time:</label>
+                    <input type="date" class="form-control" id="return" name="return" placeholder="Date...">
+                </div>
+            </div>
+            <div class="row center-block text-center">
+                <button type="submit" class="btn btn-success btn-my-search-style" id="search" name="search">Search</button>
+            </div>
+        </form>
+    -->
+    <div id="form-search">
+        <form class="form-inline" role="form" action="{% url 'show:index' %}" method="post">
+            <div class="row">
+            <div class="form-group col-ex-12 col-sx-4 col-md-4 col-lg-4">
+                <label for="id_departure" style="width: 30%">Departure:</label>
+                <input id="id_departure" style="width: 67%" maxlength="3" name="departure" type="text" required/>
+            </div>
+            <div class="form-group  col-ex-12 col-sx-4 col-md-4 col-lg-4">
+                <label for="id_destination" style="width: 30%">Destination:</label>
+                <input id="id_destination" style="width: 67%" maxlength="3" name="destination" type="text" required/>
+            </div>
+            {% csrf_token %}
+            <div class="form-group  col-ex-12 col-sx-4 col-md-4 col-lg-4">
+                <button class="btn btn-default btn-func" type="submit" name="search">Search</button>
+                <button type="submit" name="search_one" class="btn btn-default btn-func">Update </button>
+                <button type="submit" name="search_all" class="btn btn-default btn-func">Update All</button>
+{#                <input class="btn-search" type="submit" name="search_one" value="Update New Conection">#}
+{#                <input class="btn-search" type="submit" name="search_all" value="Update All">#}
+            </div>
+            </div>
+        </form>
+    </div>
+    <hr>
+    <div id="arcana-list">
+        <p></p>
+        {% if list_arcana %}
+            <table class="table-arcana-list">
+                <tr class="tr-arc">
+                    <th class="td-arc-id td-tmp" title="Id">ID</th>
+                    <th class="td-arc-dep td-tmp" title="Departure port code">Departure</th>
+                    <th class="td-arc-des td-tmp" title="Destination port code">Destination</th>
+                    <th class="td-arc-df td-tmp" title="Direct fight exist">Direct fly</th>
+                    <th class="td-arc-lcc td-tmp" title="Low cost carrier">LCC</th>
+                    <th class="td-arc-tp td-tmp" title="Transshipment port">Old Stop</th>
+                    {% if new %}
+                        <th class="td-arc-tp td-tmp" title="Transshipment port">New Stop</th>
+                        <th class="td-arc-tp td-tmp"> </th>
+                    {% endif %}
+                </tr>
+
+                {% for item in list_arcana %}
+                    {% if new %}
+                        {% ifnotequal item.old_stop item.new_top %}
+                            <tr>
+                                <td class="td-tmp">{{ item.id }}</td>
+                                <td class="td-tmp">{{ item.departure_port }}</td>
+                                <td class="td-tmp">{{ item.destination_port }}</td>
+                                <td class="td-tmp">{{ item.direct_flag }}</td>
+                                <td class="td-tmp">{{ item.lcc_flag }}</td>
+                                <td class="td-tmp">{{ item.old_stop|default_if_none:'' }}</td>
+                                <td class="td-tmp">{{ item.new_top }}</td>
+                                <td class="td-tmp"><a href="{% url 'show:up' item.id %}" title="Update new transcis">Update</a></td>
+                            </tr>
+                        {% endifnotequal %}
+                    {% else %}
+                        <tr>
+                            <td class="td-tmp">{{ item.id }}</td>
+                            <td class="td-tmp">{{ item.departure_port }}</td>
+                            <td class="td-tmp">{{ item.destination_port }}</td>
+                            <td class="td-tmp">{{ item.direct_flag }}</td>
+                            <td class="td-tmp">{{ item.lcc_flag }}</td>
+                            <td class="td-tmp">{{ item.old_stop|default_if_none:'' }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+            <div class="pagination">
+            <span class="step-links">
+            <ul class="paginetor-ul">
+                {% if list_arcana.has_previous %}
+                    <li><a href="?page={{ list_arcana.previous_page_number }}">previous</a></li>
+                {% endif %}
+                <li>
+                <span class="current">
+                    Page {{ list_arcana.number }} of {{ list_arcana.paginator.num_pages }}
+                </span>
+                </li>
+                {% if list_arcana.has_next %}
+                    <li><a href="?page={{ list_arcana.next_page_number }}">next</a></li>
+                {% endif %}
+                <li>
+                    <form action="" method="get">
+                        <input type="number" name="page" style="max-width: 32px; text-align: center;">
+                        <input type="submit" value="Go">
+                    </form>
+                </li>
+            </ul>
+            </span>
+            </div>
+        {% endif %}
+    </div>
+    <hr>
+    <div id="result">
+        <p class="rs-title">{{ text_4_test }}</p>
+        {% if rs_path %}
+            <div class="rs-div-group">
+                <div class="rs-div-result">
+                    <table class="ticket-list-table">
+                        <tr class="tr-tik-header">
+                            <th class="th-rs-dep">DEPARTURE_PORT</th>
+                            <th class="th-rs-des">DESTINATION_PORT</th>
+                            <th class="th-rs-old">OLD_CONECTION</th>
+                            <th class="th-rs-new">NEW_CONECTION</th>
+                        </tr>
+                        <tr class="tr-tik">
+                            <td class="th-rs-dep">{{ rs_path.departure_port }}</td>
+                            <td class="th-rs-des">{{ rs_path.destination_port }}</td>
+                            <td class="th-rs-old">{{ rs_path.old_stop }}</td>
+                            <td class="th-rs-new">{{ rs_path.new_top }}</td>
+                            <td><a href="{% url 'show:up' rs_path.id %}" title="Update new transcis">Update</a></td>
+                        </tr>
+                    </table>
+
+                </div>
+
+            </div>
+        {% else %}
+            <p>Hãy bắt đầu tìm kiếm để có được kết quả</p>
+        {% endif %}
+    </div>
+</div>
+<footer class="container-fluid text-center footer-my-style">
+    <p>Get Hi Travel pleasure for serve you. Have a good day and a nice travel</p>
+</footer>
+<script type="text/javascript">
+    $(document).ready(function () {
+        {#        test()#}
+    });
+    function test() {
+        var d = new Date();
+        var day = d.getDate() + 1;
+        var year = d.getYear() + 1900;
+        var mon = d.getMonth() + 1;
+        var time;
+        if (day < 10 && mon < 10) {
+            time = year + '-0' + mon + '-0' + day;
+            $('#outbound').val(time);
+            return false;
+        }
+        else if (day < 10 && mon > 10) {
+            time = year + '-' + mon + '-0' + day;
+            $('#outbound').val(time);
+            return false;
+        }
+        else if (day > 10 && mon < 10) {
+            time = year + '-0' + mon + '-' + day;
+            $('#outbound').val(time);
+            return false;
+        }
+        else {
+            time = year + '-' + mon + '-' + day;
+            $('#outbound').val(time);
+            return false;
+        }
+    }
+</script>
+</body>
+</html>
