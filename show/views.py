@@ -3,12 +3,12 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render_to_response, render, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import Path
+from models import Path
 from django.db.models import F
 from main import Main
 import django_excel as excel
 import pyexcel_xlsx
-from .forms import UploadForm, SearchWay
+from forms import UploadForm, SearchWay
 
 
 # Create your views here.
